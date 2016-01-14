@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Menu</title>
+ 
+
+</head>
+<script>
+           var categories=[
+                          {
+                             id:1,
+                             name:"Laptops"
+                          },
+                          {
+                             id:2,
+                             name:"Mobiles"
+                          }
+                         ];
+            var products=[
+                          {
+                             id:1,
+                             name:"Lenovo",
+                             category_id:1
+                          },
+                          {
+                             id:1,
+                             name:"Dell",
+                             category_id:1 
+                          },
+                          {
+                             id:2,
+                             name:"Samsung",
+                             category_id:2
+                          },
+                          {
+                             id:2,
+                             name:"Apple",
+                             category_id:2  
+                          }
+                         ];
+                   
+			function categories_display()
+			   {
+				  var htmlText='<option value=""></option> \n';
+                                  for(var i in categories)
+                                  htmlText +='<option value= ' + categories[i].id +'>' + categories[i].name + '</option>' ;
+                                  document.getElementById("category_sel").innerHTML=htmlText;
+                           }
+
+
+                        function products_display()
+                           {
+                               var info=document.getElementById("category_sel").value;
+                               var htmlText='<ol></ol>';
+                               for(i=0;i<products.length;i++)
+                                  {
+                                   if (products[i].category_id === parseInt(info))
+                                    htmlText+='<ol>' + products[i].id  + "." + products[i].name + "</ol>";
+                                  }
+                                document.getElementById("show").innerHTML=htmlText;
+                            }
+
+
+
+
+
+
+
+                        
+ </script>
+                <body onload="categories_display();">
+                          <h4>Select category</h4>
+                          <select id="category_sel" onchange="products_display();"></select>       
+                          <div id="show"></div>
+                                                                             
+			                          
+                </body>
+
+                                 
+</html>
