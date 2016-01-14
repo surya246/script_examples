@@ -51,11 +51,11 @@
                         function products_display()
                            {
                                var info=document.getElementById("category_sel").value;
-                               var htmlText='<ol></ol>';
+                               var htmlText="";
                                for(i=0;i<products.length;i++)
                                   {
                                    if (products[i].category_id === parseInt(info))
-                                    htmlText+='<ol>' + products[i].id  + "." + products[i].name + "</ol>";
+                                    htmlText+='<li>' + products[i].name + "</li>";
                                   }
                                 document.getElementById("show").innerHTML=htmlText;
                            }
@@ -65,7 +65,7 @@
                 <body onload="categories_display();">
                           <h4>Select category</h4>
                           <select id="category_sel" onchange="products_display();"></select>       
-                          <div id="show"></div>
+                          <ol id="show"></ol>
                                                                         
 			                          
                 </body>
